@@ -1,26 +1,72 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --font-display: Inter, Arial, Helvetica, sans-serif;
+
+    --background: rgb(255 255 255);
+    --foreground: rgb(40 66 96);
+    --muted-background: rgb(157 157 157);
+    --muted-foreground: rgb(110, 133, 159);
+    --primary: rgb(28 167 200);
+    --primary-foreground: rgb(255 255 255);
+    --secondary: rgb(40 66 96);
+    --accent-from: rgb(140 97 213);
+    --accent-to: rgb(28 167 200);
+    --accent-gradient: linear-gradient(
+      to right,
+      var(--accent-from),
+      var(--accent-to)
+    );
+    --border: rgb(197 192 200);
+    --danger-background: rgb(255 234 234);
+    --danger-foreground: rgb(230 57 70);
+  }
+
+  .dark {
+    --background: rgb(29 31 33);
+    --foreground: rgb(242 240 242);
+    --muted-background: rgb(94 95 99);
+    --muted-foreground: rgb(145 128 142);
+    --primary: rgb(140 97 213);
+    --primary-foreground: rgb(29 31 33);
+    --secondary: rgb(207 149 233);
+    --accent-from: rgb(140 97 213);
+    --accent-to: rgb(28 167 200);
+    --accent-gradient: linear-gradient(
+      to right,
+      var(--accent-from),
+      var(--accent-to)
+    );
+    --border: rgb(127 129 133);
+    --danger-background: rgb(230 57 70);
+    --danger-foreground: rgb(255 234 234);
+  }
+}
+
+@layer utilities {
+  .max-w-content {
+    max-width: 1191px;
+  }
+
+  .text-huge {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+
+    @media (min-width: 768px) {
+      font-size: 4.285rem;
+      line-height: 4.5rem;
+    }
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+}
+
+@theme inline {
+  --font-heading: var(--font-chakra-petch);
+  --font-body: var(--font-inter);
 }

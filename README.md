@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+Este é o repositório do frontend para o blog **JLF Blog**.
 
-First, run the development server:
+O projeto consiste em uma aplicação que exibe uma listagem de postagens, permite a busca e filtragem, e apresenta uma página de detalhes para cada post, por meio de uma experiência de leitura rápida, responsiva e agradável.
+
+**🚀 [Veja a aplicação em produção](https://www.google.com/search?q=URL_DO_DEPLOY_AQUI)**
+
+## ✨ Features
+  - **Listagem Dinâmica:** Posts carregados diretamente da API.
+  - **Filtros e Busca:** Funcionalidade de pesquisa por palavra-chave e filtro por categorias.
+  - **Paginação:** Listagem limitada a 6 postagens por página.
+  - **Página de Detalhes:** Rota dinâmica para exibir informações completas de cada post.
+  - **Posts Relacionados:** Sugestão de posts com base em categorias ou tags semelhantes.
+  - **Responsividade:** Layout 100% responsivo para desktop, tablet e mobile.
+  - **SEO e Acessibilidade:** Implementação de boas práticas para melhor indexação e usabilidade.
+  <!-- - **Dark Mode:** Tema claro e escuro para uma melhor experiência de leitura. -->
+
+## 🛠️ Tecnologias Utilizadas
+  - **Next.js 15 (App Router)**
+  - **TypeScript**
+  - **Tailwind CSS 4**
+
+## 🚀 Ambiente de Desenvolvimento
+Siga os passos abaixo para executar o projeto em seu ambiente local.
+
+**1. Clone o repositório:**
+
+```bash
+git clone https://github.com/luzivelton/jlf-blog-nextjs.git
+cd jlf-blog-nextjs
+```
+
+**2. Instale as dependências:**
+
+Com npm:
+
+```bash
+npm install
+```
+
+Ou com yarn:
+
+```bash
+yarn install
+```
+
+**3. Inicie o servidor de desenvolvimento:**
+
+Com npm:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ou com yarn:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+A aplicação estará disponível em **http://localhost:3000**.
 
-## Learn More
+## 📝 Variáveis de Ambiente
 
-To learn more about Next.js, take a look at the following resources:
+O projeto utiliza uma API pública para os dados. Para maior flexibilidade, a URL da API pode ser configurada através de um arquivo `.env.local` na raiz do projeto:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+NEXT_PUBLIC_API_URL=https://nextjs-alura-teste.vercel.app/
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔗 API
 
-## Deploy on Vercel
+O frontend consome uma API para buscar e exibir as postagens. A API fornece todos os dados necessários, incluindo títulos, categorias e conteúdo.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  - **API Base URL:** `https://nextjs-alura-teste.vercel.app/`
+  - **Documentação:** A documentação completa pode ser encontrada na própria URL da API.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+-----
+
+Desenvolvido por **João Luiz Fernandes**.
