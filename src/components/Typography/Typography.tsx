@@ -1,0 +1,112 @@
+import type {
+  _variant,
+  TypographyElement,
+  TypographyElementProps,
+  TypographyProps,
+} from '@/components/Typography/TypographyTypes'
+import { useMemo } from 'react'
+
+const VARIANT_CLASSNAMES = {
+  bodySmall: 'body body-small',
+  bodyLarge: 'body body-large',
+  body: 'body body-default',
+  caption: 'caption',
+  titleHuge: 'title titleHuge',
+  h2: 'title h2',
+  titleSmall: 'title titleSmall',
+}
+
+export function Typography({
+  variant,
+  strong,
+  secondary,
+  className,
+  numberOfLines,
+  style,
+  asVariant,
+  ...props
+}: TypographyProps) {
+  const VariantComponent = VARIANT_COMPONENT[variant]
+  const variantClass = VARIANT_CLASSNAMES[variant]
+
+  const styleFinal = useMemo(() => {
+    if (!numberOfLines) return style
+    return {
+      ...style,
+      '--line-number': numberOfLines,
+    }
+  }, [numberOfLines, style])
+
+  const classes = useMemo(
+    () =>
+      [
+        variantClass,
+        strong && 'strong',
+        secondary && 'secondary',
+        numberOfLines && 'ellipsis',
+        className,
+      ]
+        .filter(Boolean)
+        .join(' '),
+    [variantClass, strong, secondary, numberOfLines, className]
+  )
+
+  return (
+    <VariantComponent
+      className={classes}
+      variant={variant}
+      style={styleFinal}
+      asVariant={asVariant}
+      {...props}
+    />
+  )
+}
+
+function Body({
+  className,
+  variant,
+  asVariant,
+  ...props
+}: TypographyElementProps) {
+  if (asVariant) {
+    switch (variant) {
+      case 'bodySmall':
+        return <span className={className} {...props} />
+      default:
+        return <p className={className} {...props} />
+    }
+  }
+  return <span className={className} {...props} />
+}
+
+function Title({
+  variant,
+  className,
+  asVariant,
+  ...props
+}: TypographyElementProps) {
+  if (asVariant) {
+    switch (variant) {
+      case 'titleHuge':
+        return <h1 className={className} {...props} />
+      case 'h2':
+        return <h2 className={className} {...props} />
+      case 'titleSmall':
+        return <h3 className={className} {...props} />
+    }
+  }
+  return <span className={className} {...props} />
+}
+
+const VARIANT_COMPONENT: Record<
+  _variant,
+  TypographyElement<TypographyElementProps>
+> = {
+  bodySmall: Body,
+  bodyLarge: Body,
+  body: Body,
+  caption: Body,
+  titleHuge: Title,
+  h2: Title,
+  titleSmall: Title,
+}

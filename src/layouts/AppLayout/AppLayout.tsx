@@ -6,9 +6,9 @@ type AppLayoutProps = {
 
 export function AppLayout({ children }: AppLayoutProps) {
   return (
-    <div className='max-w-content mx-auto'>
+    <section className='max-w-content mx-auto'>
       <Header />
-      {children}
-    </div>
+      <div className='px-4'>{children}</div>
+    </section>
   )
 }

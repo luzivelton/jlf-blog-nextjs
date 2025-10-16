@@ -1,0 +1,72 @@
+@layer utilities {
+  .body {
+    color: var(--foreground);
+    line-height: 1.5;
+  }
+  .body-default {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+  .body-large {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  .body-small {
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
+  .caption {
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  .strong {
+    font-weight: 600;
+  }
+  .secondary {
+    color: var(--muted-foreground);
+  }
+  .ellipsis > *,
+  .ellipsis.title {
+    display: -webkit-box;
+    -webkit-line-clamp: var(--line-number);
+    line-clamp: var(--line-number);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .title {
+    color: var(--secondary);
+    font-family: var(--font-chakra-petch);
+    font-weight: 700;
+  }
+  .h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  @media (min-width: 768px) {
+    .h2 {
+      font-size: 2.5rem;
+    }
+  }
+
+  .titleSmall {
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  @media (min-width: 768px) {
+    .titleSmall {
+      font-size: 1.5rem;
+    }
+  }
+
+  .titleHuge {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    @media (min-width: 768px) {
+      font-size: 4.285rem;
+      line-height: 4.5rem;
+    }
+  }
+}

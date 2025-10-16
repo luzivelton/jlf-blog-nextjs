@@ -1,0 +1,5 @@
+@layer utilities {
+  .max-w-content {
+    max-width: 1191px;
+  }
+}

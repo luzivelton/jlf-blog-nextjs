@@ -1,4 +1,6 @@
 @import 'tailwindcss';
+@import './typography.css';
+@import './spacing.css';
 
 @layer base {
   :root {
@@ -44,29 +46,8 @@
   }
 }
 
-@layer utilities {
-  .max-w-content {
-    max-width: 1191px;
-  }
-
-  .text-huge {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-
-    @media (min-width: 768px) {
-      font-size: 4.285rem;
-      line-height: 4.5rem;
-    }
-  }
-}
-
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-body);
-}
-
-@theme inline {
-  --font-heading: var(--font-chakra-petch);
-  --font-body: var(--font-inter);
+  color: var(--muted-foreground);
+  font-family: var(--font-inter);
 }
