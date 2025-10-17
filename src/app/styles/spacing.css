@@ -1,17 +1,21 @@
 @layer utilities {
   .max-w-content {
     max-width: 1191px;
+
+    @media (max-width: 1200px) {
+      max-width: 1200px;
+    }
   }
 
   .inline-padding {
     padding-inline: 1rem;
-
-    @media (min-width: 640px) {
-      padding-inline: 0rem;
-    }
   }
 
   .full-height-with-header {
     height: calc(100dvh - 174px);
+
+    @media (max-width: 600px) {
+      height: unset;
+    }
   }
 }

@@ -9,8 +9,8 @@ export function PersonalIntroduction() {
         src='/me.jpg'
         alt='Retrato em preto e branco, bem iluminado, de um homem jovem com cabelo escuro e cacheado, óculos e bigode. Ele está olhando para a câmera com um leve sorriso, em frente a um fundo texturizado de cipós emaranhados e folhagem.'
         shape='circle'
-        width={224}
-        height={224}
+        width={150}
+        height={150}
       />
       <Typography className='mt-6' variant='body' secondary={true}>
         Olá, meu nome é João<span aria-hidden='true'>_</span>

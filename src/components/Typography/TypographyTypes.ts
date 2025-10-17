@@ -1,7 +1,7 @@
 export type _variant =
   | 'body'
   | 'bodySmall'
-  | 'bodyLarge'
+  | 'bodyMedium'
   | 'titleHuge'
   | 'h2'
   | 'titleSmall'

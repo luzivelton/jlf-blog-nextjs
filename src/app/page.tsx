@@ -1,3 +1,4 @@
+import { MyPosts } from '@/app/_components/MyPosts'
 import { PersonalIntroduction } from '@/app/_components/PersonalIntroduction'
 import { Image } from '@/components/Image/Image'
 import { ContactDetails } from '@/layouts/AppLayout/components/ContactDetails'
@@ -17,6 +18,7 @@ export default function Home() {
           height={28}
         />
       </div>
+      <MyPosts />
       <Footer className='mt-28' prefixContent={<ContactDetails />} />
     </>
   )

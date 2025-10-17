@@ -9,7 +9,7 @@ import clsx from 'clsx'
 
 const VARIANT_CLASSNAMES = {
   bodySmall: 'body body-small',
-  bodyLarge: 'body body-large',
+  bodyMedium: 'body body-bodyMedium',
   body: 'body body-default',
   caption: 'caption',
   titleHuge: 'title titleHuge',
@@ -110,7 +110,7 @@ const VARIANT_COMPONENT: Record<
   TypographyElement<TypographyElementProps>
 > = {
   bodySmall: Body,
-  bodyLarge: Body,
+  bodyMedium: Body,
   body: Body,
   caption: Body,
   titleHuge: Title,
