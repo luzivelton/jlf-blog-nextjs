@@ -16,7 +16,7 @@ export function NavItem({ href, children }: NavItemProps) {
   return (
     <Typography
       style={{ color: isActive ? 'var(--primary)' : undefined }}
-      variant='titleSmall'
+      variant='titleMedium'
     >
       <Link href={href}>{children}</Link>
     </Typography>

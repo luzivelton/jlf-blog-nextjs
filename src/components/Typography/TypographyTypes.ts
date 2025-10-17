@@ -4,7 +4,7 @@ export type _variant =
   | 'bodyMedium'
   | 'titleHuge'
   | 'h2'
-  | 'titleSmall'
+  | 'titleMedium'
   | 'caption'
 
 export type TypographyElementProps =
@@ -18,7 +18,7 @@ export type TypographyElement<T extends TypographyElementProps> =
 
 export type TypographyProps = TypographyElementProps & {
   strong?: boolean
-  secondary?: boolean
+  primary?: boolean
   numberOfLines?: number
   asVariant?: TypographyElementProps['asVariant']
 }

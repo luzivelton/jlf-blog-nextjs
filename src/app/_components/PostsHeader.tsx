@@ -6,7 +6,7 @@ export function PostsHeader() {
   return (
     <header className='flex flex-col sm:flex-row gap-4 justify-between '>
       <div className='flex flex-col sm:items-center sm:flex-row gap-2 sm:gap-8'>
-        <Typography variant='titleSmall' asVariant='h2'>
+        <Typography variant='titleMedium' asVariant='h2'>
           Minha postagens
         </Typography>
         <PostsSearch />

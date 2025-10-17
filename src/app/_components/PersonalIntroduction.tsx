@@ -12,7 +12,7 @@ export function PersonalIntroduction() {
         width={150}
         height={150}
       />
-      <Typography className='mt-6' variant='body' secondary={true}>
+      <Typography className='mt-6' variant='body' primary={true}>
         Olá, meu nome é João<span aria-hidden='true'>_</span>
       </Typography>
       <Typography
@@ -30,9 +30,11 @@ export function PersonalIntroduction() {
         variant='body'
         className='mt-6 max-w-xs sm:max-w-xl mx-auto text-center text-base sm:text-lg'
       >
-        Estudo programação desde os 15 anos e, ao longo de mais de 4 anos,
-        trabalhei em diversos projetos de tecnologia para grandes clientes do
-        mercado financeiro. Confira alguns dos projetos que desenvolvi!
+        Estou me especializando em Desenvolvimento Full-Stack, sou Tecnólogo em
+        A.D.S. e Técnico em Informática. Estudo programação desde os 15 anos e,
+        ao longo de mais de 4 anos, trabalhei em diversos projetos de tecnologia
+        para grandes clientes do mercado financeiro. Confira uma amostra do meu
+        trabalho!
       </Typography>
     </div>
   )

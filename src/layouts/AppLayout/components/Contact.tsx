@@ -41,7 +41,7 @@ function ContactItem({ icon, label, href, className }: ContactItemProps) {
         target='_blank'
         rel='noreferrer'
       >
-        <Typography secondary={true} variant='body'>
+        <Typography primary={true} variant='body'>
           {icon}
         </Typography>
         {label}

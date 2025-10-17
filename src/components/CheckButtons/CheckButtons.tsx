@@ -2,15 +2,21 @@ import { CheckButtonsItem } from '@/components/CheckButtons/CheckButtonsItem'
 import { CheckButtonsProps } from '@/components/CheckButtons/CheckButtonsTypes'
 import { useCallback } from 'react'
 
-export function CheckButtons({ options, value, onChange }: CheckButtonsProps) {
+export function CheckButtons<T>({
+  options,
+  value,
+  onChange,
+}: CheckButtonsProps<T>) {
   const handleOnChange = useCallback(
-    (value: string) => {
+    (value: T) => {
       onChange((prev) => {
-        if (prev.includes(value)) {
+        const shouldRemove = prev.includes(value)
+
+        if (shouldRemove) {
           return prev.filter((v) => v !== value)
-        } else {
-          return [...prev, value]
         }
+
+        return [...prev, value]
       })
     },
     [onChange]
@@ -24,11 +30,11 @@ export function CheckButtons({ options, value, onChange }: CheckButtonsProps) {
     >
       {options.map((option) => (
         <CheckButtonsItem
-          key={option}
-          isChecked={value.includes(option)}
+          key={String(option.value)}
+          isChecked={value.includes(option.value)}
           onChange={handleOnChange}
-          label={option}
-          value={option}
+          label={option.label}
+          value={option.value}
         />
       ))}
     </div>

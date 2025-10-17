@@ -11,7 +11,7 @@ export function Logo() {
         height={36}
         className='sm:w-[46px] sm:h-[46px] w-[36px] h-[36px]'
       />
-      <Typography variant='titleSmall'>JOÃO L. FERNANDES</Typography>
+      <Typography variant='titleMedium'>JOÃO L. FERNANDES</Typography>
     </div>
   )
 }

@@ -1,18 +1,18 @@
+import { ImageProps } from '@/components/Image/ImageTypes'
 import clsx from 'clsx'
-import ImageBase, { ImageProps as ImageBaseProps } from 'next/image'
-
-type ImageProps = ImageBaseProps & {
-  shape?: 'circle' | 'rounded' | 'square'
-}
+import ImageBase from 'next/image'
 
 export function Image({ className, shape = 'square', ...props }: ImageProps) {
   return (
     <ImageBase
-      className={clsx(className, {
-        'rounded-full': shape === 'circle',
-        'rounded-lg': shape === 'rounded',
-        'rounded-none': shape === 'square',
-      })}
+      className={clsx(
+        {
+          'rounded-full': shape === 'circle',
+          'rounded-lg': shape === 'rounded',
+          'rounded-none': shape === 'square',
+        },
+        className
+      )}
       {...props}
     />
   )

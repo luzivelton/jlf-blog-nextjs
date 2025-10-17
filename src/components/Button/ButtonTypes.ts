@@ -1,7 +1,11 @@
 import { JSX } from 'react'
 
 export type ButtonProps = JSX.IntrinsicElements['button'] & {
-  color?: 'primary' | 'secondary'
-  variant?: 'filled' | 'outlined' | 'text'
-  size?: 'small' | 'medium'
+  color?: ButtonColor
+  variant?: ButtonVariant
+  size?: ButtonSize
 }
+
+export type ButtonColor = 'primary' | 'secondary' | 'muted'
+export type ButtonVariant = 'filled' | 'outlined' | 'text'
+export type ButtonSize = 'small' | 'medium'

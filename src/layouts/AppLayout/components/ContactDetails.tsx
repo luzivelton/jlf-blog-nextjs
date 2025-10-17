@@ -5,7 +5,7 @@ export function ContactDetails() {
   return (
     <div className='flex flex-col sm:flex-row justify-between gap-4'>
       <div>
-        <Typography secondary={true} variant='body'>
+        <Typography primary={true} variant='body'>
           Vamos conversar?
         </Typography>
         <Typography asVariant={'h2'} variant='titleHuge'>

@@ -8,19 +8,19 @@ import { useMemo } from 'react'
 import clsx from 'clsx'
 
 const VARIANT_CLASSNAMES = {
-  bodySmall: 'body body-small',
-  bodyMedium: 'body body-bodyMedium',
-  body: 'body body-default',
+  bodySmall: 'body bodySmall',
+  bodyMedium: 'body bodyMedium',
+  body: 'body bodyDefault',
   caption: 'caption',
   titleHuge: 'title titleHuge',
   h2: 'title h2',
-  titleSmall: 'title titleSmall',
+  titleMedium: 'title titleMedium',
 }
 
 export function Typography({
   variant,
   strong,
-  secondary,
+  primary,
   className,
   numberOfLines,
   style,
@@ -44,7 +44,7 @@ export function Typography({
         variantClass,
         {
           strong,
-          secondary,
+          primary,
           ellipsis: numberOfLines,
         },
         className
@@ -86,7 +86,7 @@ function Title({
         return <h1 className={className} {...props} />
       case 'h2':
         return <h2 className={className} {...props} />
-      case 'titleSmall':
+      case 'titleMedium':
         return <h3 className={className} {...props} />
     }
   }
@@ -115,5 +115,5 @@ const VARIANT_COMPONENT: Record<
   caption: Body,
   titleHuge: Title,
   h2: Title,
-  titleSmall: Title,
+  titleMedium: Title,
 }

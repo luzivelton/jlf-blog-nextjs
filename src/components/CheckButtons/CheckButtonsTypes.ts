@@ -1,12 +1,17 @@
-export type CheckButtonsProps = {
-  options: string[]
-  value: string[]
-  onChange: (param: (prev: string[]) => string[]) => void
+export type CheckButtonsOption<T> = {
+  label: string
+  value: T
 }
 
-export type CheckButtonsItemProps = {
+export type CheckButtonsProps<T> = {
+  options: CheckButtonsOption<T>[]
+  value: T[]
+  onChange: (param: (prev: T[]) => T[]) => void
+}
+
+export type CheckButtonsItemProps<T> = {
   isChecked: boolean
-  onChange: (option: string) => void
+  onChange: (option: T) => void
   label: string
-  value: string
+  value: T
 }

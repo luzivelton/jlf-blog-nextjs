@@ -1,71 +1,10 @@
 @import 'tailwindcss';
 @import './typography.css';
 @import './spacing.css';
-
-@layer base {
-  :root {
-    --font-display: Inter, Arial, Helvetica, sans-serif;
-
-    --background: rgb(255 255 255);
-    --background-active: rgba(40, 66, 96, 0.1);
-
-    --foreground: rgb(40 66 96);
-    --muted-background: rgb(157 157 157);
-    --muted-foreground: rgb(110, 133, 159);
-
-    --primary: rgb(28 167 200);
-    --primary-active: rgb(10 160 195);
-    --primary-foreground: rgb(255 255 255);
-
-    --secondary: rgb(40 66 96);
-    --secondary-active: rgb(30 50 70);
-    --secondary-foreground: rgb(255 255 255);
-
-    --accent-from: rgb(140 97 213);
-    --accent-to: rgb(28 167 200);
-    --accent-gradient: linear-gradient(
-      to right,
-      var(--accent-from),
-      var(--accent-to)
-    );
-    --border: rgb(197 192 200);
-    --danger-background: rgb(255 234 234);
-    --danger-foreground: rgb(230 57 70);
-    --input-placeholder: rgba(40, 66, 96, 0.5);
-  }
-
-  .dark {
-    --background: rgb(29 31 33);
-    --background-active: rgba(40, 66, 96, 0.1);
-
-    --foreground: rgb(242 240 242);
-    --muted-background: rgb(94 95 99);
-    --muted-foreground: rgb(145 128 142);
-
-    --primary: rgb(28 167 200);
-    --primary-active: rgb(10 160 195);
-    --primary-foreground: rgb(29 31 33);
-
-    --secondary: rgb(40 66 96);
-    --secondary-active: rgb(30 50 70);
-    --secondary-foreground: rgb(255 255 255);
-
-    --accent-from: rgb(140 97 213);
-    --accent-to: rgb(28 167 200);
-    --accent-gradient: linear-gradient(
-      to right,
-      var(--accent-from),
-      var(--accent-to)
-    );
-    --border: rgb(127 129 133);
-    --danger-background: rgb(230 57 70);
-    --danger-foreground: rgb(255 234 234);
-    --input-placeholder: rgba(40, 66, 96, 0.5);
-  }
-}
+@import './colors.css';
 
 body {
   background: var(--background);
-  color: var(--muted-foreground);
+  color: var(--foreground-muted);
   font-family: var(--font-inter);
 }

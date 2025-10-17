@@ -10,7 +10,7 @@ export default function Home() {
       <div className='inline-padding flex flex-col items-center full-height-with-header'>
         <PersonalIntroduction />
         <Image
-          className='hidden sm:block m-auto'
+          className='hidden sm:block m-auto h-auto'
           src='/layoutPatterns.svg'
           alt=''
           aria-label='hidden'
