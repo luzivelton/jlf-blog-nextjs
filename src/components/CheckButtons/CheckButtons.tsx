@@ -2,7 +2,7 @@ import { Button } from '@/components/Button/Button'
 import { CheckButtonsItem } from '@/components/CheckButtons/CheckButtonsItem'
 import { CheckButtonsProps } from '@/components/CheckButtons/CheckButtonsTypes'
 import { Dropdown } from '@/components/Dropdown/Dropdown'
-import { ArrowDown, ChevronDown } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import { useCallback, useMemo } from 'react'
 
 export function CheckButtons<T>({

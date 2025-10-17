@@ -24,7 +24,7 @@ export function RadioButtons<T>({
         return newValue
       })
     },
-    [onChange]
+    [onChange, allowClear]
   )
 
   const firstOptions = useMemo(() => {

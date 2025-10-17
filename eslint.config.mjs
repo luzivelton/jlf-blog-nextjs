@@ -49,7 +49,13 @@ export default defineConfig([
       'unused-imports/no-unused-imports': 'warn',
       'prettier/prettier': 'warn',
       'no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': ['warn'],
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+        },
+      ],
     },
   },
   pluginReact.configs.flat.recommended,

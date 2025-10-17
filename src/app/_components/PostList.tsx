@@ -1,7 +1,6 @@
 import { PostCard } from '@/app/_components/PostCard'
 import { Result } from '@/components/Result/Result'
 import { Spinner } from '@/components/Spinner/Spinner'
-import { Typography } from '@/components/Typography/Typography'
 import { IPost } from '@/types/IPosts'
 import { FileX2Icon } from 'lucide-react'
 

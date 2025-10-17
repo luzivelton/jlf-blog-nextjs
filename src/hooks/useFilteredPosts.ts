@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
-import { getAllPosts, getPostsByCategory, getPostsByTag } from '@/lib/api'
+import { getAllPosts, getPostsByCategory } from '@/lib/api'
 import { useFilters } from '@/contexts/FiltersContext/useFilters'
 import { useMemo } from 'react'
 
 export function useFilteredPosts() {
-  const { tag, category, limit, page } = useFilters()
+  const { category, limit, page } = useFilters()
 
   const queryConfig = useMemo(() => {
     if (category) {
@@ -17,7 +17,7 @@ export function useFilteredPosts() {
       queryKey: ['posts', 'all', limit, page],
       queryFn: () => getAllPosts({ page, limit }),
     }
-  }, [category, tag, limit, page])
+  }, [category, limit, page])
 
   return useQuery({
     ...queryConfig,

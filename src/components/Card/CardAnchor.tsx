@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import Link, { LinkProps } from 'next/link'
-import { JSX } from 'react'
 
 type CardAnchorProps = Omit<
   React.AnchorHTMLAttributes<HTMLAnchorElement>,

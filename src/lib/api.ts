@@ -1,6 +1,5 @@
-import { API_URL } from '@/config/env'
 import { PaginationParams } from '@/types/IPagination'
-import { IPost, PostDetailsResponse, PostsResponse } from '@/types/IPosts'
+import { PostDetailsResponse, PostsResponse } from '@/types/IPosts'
 
 async function apiFetch<T, P>(endpoint: string, params?: P): Promise<T> {
   const url = new URL(`${BASE_URL}${endpoint}`, window.location.origin)
