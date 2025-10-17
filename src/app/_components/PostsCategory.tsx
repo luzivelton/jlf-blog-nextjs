@@ -11,7 +11,12 @@ export function PostsCategory() {
   return (
     <div className='flex flex-col sm:items-center sm:flex-row gap-2 sm:gap-4'>
       <Typography variant='bodyMedium'>Categorias:</Typography>
-      <RadioButtons options={options} value={category} onChange={setCategory} />
+      <RadioButtons
+        options={options}
+        value={category}
+        onChange={setCategory}
+        maxItems={3}
+      />
     </div>
   )
 }

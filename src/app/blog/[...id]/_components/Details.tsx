@@ -32,7 +32,7 @@ export function Details({ post, error, isLoading }: DetailsProps) {
 
   return (
     <section>
-      <div className='flex flex-col md:flex-row gap-4 '>
+      <div className='flex flex-col md:flex-row gap-4 flex-wrap '>
         <div className='flex flex-col gap-4 md:gap-6 flex-1'>
           <Typography
             variant='titleHuge'
@@ -64,7 +64,6 @@ export function Details({ post, error, isLoading }: DetailsProps) {
           alt={`${post.title}`}
           width={608}
           height={358}
-          style={{ width: 'auto', height: 'auto' }}
         />
       </div>
       <Typography variant='body' asVariant={true} className='mt-6 sm:mt-16'>

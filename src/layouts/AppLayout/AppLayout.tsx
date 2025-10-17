@@ -1,12 +1,19 @@
 import { Header } from '@/layouts/AppLayout/components/Header'
+import clsx from 'clsx'
+import { JSX } from 'react/jsx-dev-runtime'
 
-type AppLayoutProps = {
+type AppLayoutProps = JSX.IntrinsicElements['section'] & {
   children: React.ReactNode
 }
 
-export function AppLayout({ children }: AppLayoutProps) {
+export function AppLayout({ className, children }: AppLayoutProps) {
   return (
-    <section className='flex flex-col max-w-content mx-auto min-h-[100dvh]'>
+    <section
+      className={clsx(
+        'flex flex-col max-w-content mx-auto min-h-[100dvh]',
+        className
+      )}
+    >
       <Header />
       {children}
     </section>

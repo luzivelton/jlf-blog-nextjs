@@ -13,6 +13,7 @@ export type RadioButtonsProps<T> = Omit<
   value: T | null
   onChange: (param: (value: T | null) => T | null) => void
   allowClear?: boolean
+  maxItems?: number
 }
 
 export type RadioButtonsItemProps<T> = {
@@ -20,4 +21,5 @@ export type RadioButtonsItemProps<T> = {
   onChange: (option: T) => void
   label: string
   value: T
+  primary?: boolean
 }

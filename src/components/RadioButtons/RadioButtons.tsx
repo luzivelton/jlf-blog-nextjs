@@ -1,7 +1,9 @@
+import { Button } from '@/components/Button/Button'
 import { Dropdown } from '@/components/Dropdown/Dropdown'
 import { RadioButtonsItem } from '@/components/RadioButtons/RadioButtonsItem'
 import { RadioButtonsProps } from '@/components/RadioButtons/RadioButtonsTypes'
 import clsx from 'clsx'
+import { ChevronDown } from 'lucide-react'
 import { useCallback, useMemo } from 'react'
 
 export function RadioButtons<T>({
@@ -10,6 +12,7 @@ export function RadioButtons<T>({
   onChange,
   allowClear,
   className,
+  maxItems,
   ...props
 }: RadioButtonsProps<T>) {
   const handleOnChange = useCallback(
@@ -28,23 +31,30 @@ export function RadioButtons<T>({
   )
 
   const firstOptions = useMemo(() => {
-    return options.slice(0, 3)
-  }, [options])
+    if (!maxItems) {
+      return options
+    }
+    return options.slice(0, maxItems)
+  }, [options, maxItems])
 
   const collapsedOptions = useMemo(() => {
-    return options.slice(3)
-  }, [options])
+    if (!maxItems) {
+      return []
+    }
+    return options.slice(maxItems)
+  }, [options, maxItems])
 
   return (
     <div
       id='radio-buttons'
-      className={clsx('inline-flex gap-2 sm:gap-4', className)}
+      className={clsx('inline-flex gap-2 sm:gap-4 relative', className)}
       role='group'
       aria-label='Selecione uma opção'
       {...props}
     >
       {firstOptions.map((option) => (
         <RadioButtonsItem
+          primary={true}
           key={String(option.value)}
           isSelected={value === option.value}
           onChange={handleOnChange}
@@ -59,7 +69,14 @@ export function RadioButtons<T>({
           onChange={handleOnChange}
           options={collapsedOptions}
           value={value}
-        />
+          classNames={{
+            panel: 'top-[3rem]',
+          }}
+        >
+          <Button variant='filled' color='secondary'>
+            <ChevronDown />
+          </Button>
+        </Dropdown>
       )}
     </div>
   )

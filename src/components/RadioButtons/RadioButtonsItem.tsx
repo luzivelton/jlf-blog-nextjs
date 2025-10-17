@@ -7,10 +7,11 @@ export const RadioButtonsItem = memo(function RadioButtonsItem<T>({
   onChange,
   label,
   value,
+  primary,
 }: RadioButtonsItemProps<T>) {
   return (
     <Button
-      color={isSelected ? 'secondary' : 'muted'}
+      color={isSelected ? (primary ? 'primary' : 'secondary') : 'muted'}
       variant='filled'
       onClick={() => onChange(value)}
       aria-pressed={isSelected}

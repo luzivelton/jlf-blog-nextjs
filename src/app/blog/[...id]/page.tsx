@@ -1,4 +1,5 @@
 import { PostDetails } from '@/app/blog/[...id]/_components/PostDetails'
+import { AppLayout } from '@/layouts/AppLayout/AppLayout'
 import { Footer } from '@/layouts/AppLayout/components/Footer'
 
 type IBlogProps = {
@@ -12,9 +13,9 @@ export default async function Blog({ params }: IBlogProps) {
   const id = awaitedParams.id?.[0]
 
   return (
-    <div className='inline-padding flex flex-col'>
+    <AppLayout className='flex flex-col'>
       <PostDetails id={id} />
       <Footer className='mt-10' />
-    </div>
+    </AppLayout>
   )
 }

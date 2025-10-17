@@ -33,9 +33,7 @@ export default function RootLayout({
       </head>
       <body className={`${chakraPetch.variable} ${inter.variable} antialiased`}>
         <ThemeProvider>
-          <AppLayout>
-            <QueryProvider>{children}</QueryProvider>
-          </AppLayout>
+          <QueryProvider>{children}</QueryProvider>
         </ThemeProvider>
       </body>
     </html>

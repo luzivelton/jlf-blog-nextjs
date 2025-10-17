@@ -14,7 +14,7 @@ export function PostDetails({ id }: PostDetailsProps) {
   const randomTag = data?.post.tags[randomIndex]
 
   return (
-    <div className='flex flex-col full-height-with-header'>
+    <div className='flex flex-col full-height-with-header inline-padding'>
       <Details isLoading={isLoading} error={error} post={data?.post} />
       {randomTag?.slug && <PostRecommendations tagsSlug={randomTag?.slug} />}
     </div>

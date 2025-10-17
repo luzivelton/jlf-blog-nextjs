@@ -9,7 +9,11 @@ type CardAnchorProps = Omit<
     children?: React.ReactNode | undefined
   } & React.RefAttributes<HTMLAnchorElement>
 
-export function CardAnchor({ className, ...props }: CardAnchorProps) {
+export function CardAnchor({ className, onClick, ...props }: CardAnchorProps) {
+  function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
+    if (onClick) onClick(e)
+  }
+
   return (
     <Link
       className={clsx(
@@ -17,6 +21,7 @@ export function CardAnchor({ className, ...props }: CardAnchorProps) {
         className
       )}
       {...props}
+      onClick={handleClick}
     />
   )
 }
