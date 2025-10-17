@@ -1,4 +1,4 @@
-import { useInfiniteQuery, useQuery } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import {
   getAllPosts,
   getPostsByCategory,
@@ -8,42 +8,29 @@ import {
 
 const DEFAULT_LIMIT = 6
 
-export function useAllPosts(limit = DEFAULT_LIMIT) {
-  return useInfiniteQuery({
-    queryKey: ['posts', 'all', limit],
-    queryFn: ({ pageParam = 1 }) => getAllPosts({ page: pageParam, limit }),
-    getNextPageParam: (lastPage) => {
-      const { pagination } = lastPage
-      return pagination?.hasNextPage ? pagination.currentPage + 1 : undefined
-    },
-    initialPageParam: 1,
+export function useAllPosts(page = 1, limit = DEFAULT_LIMIT) {
+  return useQuery({
+    queryKey: ['posts', 'all', page, limit],
+    queryFn: () => getAllPosts({ page, limit }),
   })
 }
 
-export function usePostsByCategory(category: string, limit = DEFAULT_LIMIT) {
-  return useInfiniteQuery({
-    queryKey: ['posts', 'category', category, limit],
-    queryFn: ({ pageParam = 1 }) =>
-      getPostsByCategory(category, { page: pageParam, limit }),
-    getNextPageParam: (lastPage) => {
-      const { pagination } = lastPage
-      return pagination?.hasNextPage ? pagination.currentPage + 1 : undefined
-    },
-    initialPageParam: 1,
+export function usePostsByCategory(
+  category: string,
+  page = 1,
+  limit = DEFAULT_LIMIT
+) {
+  return useQuery({
+    queryKey: ['posts', 'category', category, page, limit],
+    queryFn: () => getPostsByCategory(category, { page, limit }),
     enabled: !!category,
   })
 }
 
-export function usePostsByTag(tag: string, limit = DEFAULT_LIMIT) {
-  return useInfiniteQuery({
-    queryKey: ['posts', 'tag', tag, limit],
-    queryFn: ({ pageParam = 1 }) =>
-      getPostsByTag(tag, { page: pageParam, limit }),
-    getNextPageParam: (lastPage) => {
-      const { pagination } = lastPage
-      return pagination?.hasNextPage ? pagination.currentPage + 1 : undefined
-    },
-    initialPageParam: 1,
+export function usePostsByTag(tag: string, page = 1, limit = DEFAULT_LIMIT) {
+  return useQuery({
+    queryKey: ['posts', 'tag', tag, page, limit],
+    queryFn: () => getPostsByTag(tag, { page, limit }),
     enabled: !!tag,
   })
 }

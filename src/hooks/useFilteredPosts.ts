@@ -1,56 +1,33 @@
-import {
-  InfiniteData,
-  useInfiniteQuery,
-  UseInfiniteQueryOptions,
-} from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import { getAllPosts, getPostsByCategory, getPostsByTag } from '@/lib/api'
 import { useFilters } from '@/contexts/FiltersContext/useFilters'
 import { useMemo } from 'react'
-import { PostsResponse } from '@/types/IPosts'
-
-type QueryKey =
-  | ['posts', 'tag', string, number]
-  | ['posts', 'category', string, number]
-  | ['posts', 'all', number]
+// No need for QueryKey type with useQuery
 
 export function useFilteredPosts() {
-  const { tag, category, limit } = useFilters()
+  const { tag, category, limit, page } = useFilters()
 
   const queryConfig = useMemo(() => {
     if (tag) {
       return {
-        queryKey: ['posts', 'tag', tag, limit] as QueryKey,
-        queryFn: ({ pageParam = 1 }: { pageParam?: number }) =>
-          getPostsByTag(tag, { page: pageParam, limit }),
+        queryKey: ['posts', 'tag', tag, limit, page],
+        queryFn: () => getPostsByTag(tag, { page, limit }),
       }
     }
     if (category) {
       return {
-        queryKey: ['posts', 'category', category, limit] as QueryKey,
-        queryFn: ({ pageParam = 1 }: { pageParam?: number }) =>
-          getPostsByCategory(category!, { page: pageParam, limit }),
+        queryKey: ['posts', 'category', category, limit, page],
+        queryFn: () => getPostsByCategory(category!, { page, limit }),
       }
     }
     return {
-      queryKey: ['posts', 'all', limit] as QueryKey,
-      queryFn: ({ pageParam = 1 }: { pageParam?: number }) =>
-        getAllPosts({ page: pageParam, limit }),
+      queryKey: ['posts', 'all', limit, page],
+      queryFn: () => getAllPosts({ page, limit }),
     }
-  }, [category, tag, limit])
+  }, [category, tag, limit, page])
 
-  return useInfiniteQuery<
-    PostsResponse,
-    Error,
-    InfiniteData<PostsResponse>,
-    QueryKey,
-    number
-  >({
+  return useQuery({
     ...queryConfig,
-    getNextPageParam: (lastPage) => {
-      const { pagination } = lastPage
-      return pagination?.hasNextPage ? pagination.currentPage + 1 : undefined
-    },
-    initialPageParam: 1,
     enabled: true,
   })
 }

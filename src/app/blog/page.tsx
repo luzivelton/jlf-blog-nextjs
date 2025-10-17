@@ -1,12 +1,20 @@
-import { Footer } from '@/layouts/AppLayout/components/Footer'
+'use client'
+import { Spinner } from '@/components/Spinner/Spinner'
+import { useFilters } from '@/contexts/FiltersContext/useFilters'
+import { useAllPosts } from '@/hooks/usePostsData'
+import { useMemo } from 'react'
 
-export default function Blog() {
-  return (
-    <div className='flex flex-col items-center'>
-      <p className='text-[var(--muted-foreground)] mt-4 max-w-xl m-auto text-center'>
-        Estudo programação desde os 15 anos e, ao longo de uma carreira de mais
-      </p>
-      <Footer className='mt-10' />
-    </div>
-  )
+export default function Redirect() {
+  const { data } = useAllPosts()
+  const { category, tag } = useFilters()
+
+  const posts = useMemo(() => data?.pages.flatMap((page) => page.posts), [data])
+
+  const firstPost = posts?.[0].id
+
+  if (firstPost) {
+    window.location.href = `/blog/${firstPost}`
+  }
+
+  return <Spinner />
 }

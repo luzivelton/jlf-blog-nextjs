@@ -40,11 +40,11 @@
   }
 
   .dark {
-    --background: rgb(29 31 33);
+    --background: #01080e;
     --background-active: rgba(40, 66, 96, 0.1);
 
     --foreground: rgb(242 240 242);
-    --foreground-muted: rgb(110, 133, 159);
+    --foreground-muted: #d7f9ff;
 
     --muted-background: rgb(94 95 99);
     --muted-foreground: rgb(255 255 255);
@@ -52,13 +52,13 @@
 
     --shadow: rgba(0, 0, 0, 0.2);
 
-    --primary: rgb(28 167 200);
+    --primary: #2bdefd;
     --primary-active: rgb(10 160 195);
-    --primary-foreground: rgb(29 31 33);
+    --primary-foreground: #01080e;
 
-    --secondary: rgb(40 66 96);
+    --secondary: #d7f9ff;
     --secondary-active: rgb(30 50 70);
-    --secondary-foreground: rgb(255 255 255);
+    --secondary-foreground: #01080e;
 
     --accent-shadow: rgba(28, 167, 200, 0.3);
     --accent: rgb(140 97 213);
@@ -72,6 +72,6 @@
     --border: rgb(127 129 133);
     --danger-background: rgb(230 57 70);
     --danger-foreground: rgb(255 234 234);
-    --input-placeholder: rgba(40, 66, 96, 0.5);
+    --input-placeholder: rgb(255 255 255);
   }
 }

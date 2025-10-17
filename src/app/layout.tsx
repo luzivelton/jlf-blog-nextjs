@@ -4,12 +4,11 @@ import { Chakra_Petch, Inter } from 'next/font/google'
 import QueryProvider from '@/providers/QueryProvider'
 import { ThemeProvider } from '@/providers/ThemeProvider'
 import { AppLayout } from '@/layouts/AppLayout/AppLayout'
-import { FiltersProvider } from '@/contexts/FiltersContext/FiltersContext'
 
 const chakraPetch = Chakra_Petch({
   variable: '--font-chakra-petch',
   subsets: ['latin'],
-  weight: ['700'],
+  weight: ['400', '700'],
 })
 
 const inter = Inter({

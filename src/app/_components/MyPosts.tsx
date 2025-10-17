@@ -5,6 +5,7 @@ import { dehydrate, HydrationBoundary } from '@tanstack/react-query'
 import { Suspense } from 'react'
 import { PostsFeed } from '@/app/_components/PostsFeed'
 import { PostsFilters } from '@/app/_components/PostFilters'
+import { PostsPagination } from '@/app/_components/PostsPagination'
 
 export async function MyPosts() {
   const queryClient = getQueryClient()
@@ -26,6 +27,7 @@ export async function MyPosts() {
           <Suspense fallback={<div>Loading posts...</div>}>
             <PostsFeed />
           </Suspense>
+          <PostsPagination />
         </section>
       </FiltersProvider>
     </HydrationBoundary>

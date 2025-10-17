@@ -23,7 +23,6 @@ export async function GET(
     if (!response.ok) {
       throw new Error(`External API error: ${response.status}`)
     }
-    console.log({ response })
     const data = await response.json()
 
     return NextResponse.json(data, {
