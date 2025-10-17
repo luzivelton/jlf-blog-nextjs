@@ -6,15 +6,16 @@ import { Suspense } from 'react'
 import { PostsFeed } from '@/app/_components/PostsFeed'
 import { PostsFilters } from '@/app/_components/PostFilters'
 import { PostsPagination } from '@/app/_components/PostsPagination'
+import { Spinner } from '@/components/Spinner/Spinner'
+
+const LIMIT = 6
 
 export async function MyPosts() {
   const queryClient = getQueryClient()
-  const limit = 6
 
-  await queryClient.prefetchInfiniteQuery({
-    queryKey: ['posts', 'all', limit],
-    queryFn: ({ pageParam = 1 }) => getAllPosts({ page: pageParam, limit }),
-    initialPageParam: 1,
+  await queryClient.prefetchQuery({
+    queryKey: ['posts', 'all', LIMIT],
+    queryFn: () => getAllPosts({ page: 1, limit: LIMIT }),
   })
 
   const dehydratedState = dehydrate(queryClient)
@@ -24,7 +25,7 @@ export async function MyPosts() {
       <FiltersProvider>
         <section className='inline-padding flex flex-col gap-4 sm:gap-8'>
           <PostsFilters />
-          <Suspense fallback={<div>Loading posts...</div>}>
+          <Suspense fallback={<Spinner />}>
             <PostsFeed />
           </Suspense>
           <PostsPagination />

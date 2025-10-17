@@ -4,12 +4,12 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(
   request: NextRequest,
-  params: Promise<{ path: string[] }>
+  { params }: { params: Promise<{ path: string[] }> }
 ) {
   const { searchParams } = new URL(request.url)
   const { path } = await params
   const endpoint = path ? path.join('/') : ''
-  const url = `${API_URL}/${endpoint}${searchParams.toString() ? `?${searchParams.toString()}` : ''}`
+  const url = `${API_URL}/api/${endpoint}${searchParams.toString() ? `?${searchParams.toString()}` : ''}`
 
   try {
     const response = await fetch(url, {

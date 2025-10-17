@@ -28,7 +28,7 @@ export function PersonalIntroduction() {
       <Typography
         asVariant={true}
         variant='body'
-        className='mt-6 max-w-xs sm:max-w-xl mx-auto text-center text-base sm:text-lg'
+        className='mt-6 max-w-xs sm:max-w-xl mx-auto text-center sm:text-lg'
       >
         Estou me especializando em Desenvolvimento Full-Stack pela PUC-Rio, sou
         Tecnólogo em A.D.S. e Técnico em Informática. Estudo programação desde

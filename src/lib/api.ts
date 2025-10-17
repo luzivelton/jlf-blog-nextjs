@@ -1,11 +1,8 @@
 import { API_URL } from '@/config/env'
 import { PaginationParams } from '@/types/IPagination'
-import { IPost, PostsResponse } from '@/types/IPosts'
+import { IPost, PostDetailsResponse, PostsResponse } from '@/types/IPosts'
 
-async function apiFetch<P>(
-  endpoint: string,
-  params?: P
-): Promise<PostsResponse> {
+async function apiFetch<T, P>(endpoint: string, params?: P): Promise<T> {
   const url = new URL(`${BASE_URL}${endpoint}`, window.location.origin)
   if (params) {
     Object.entries(params).forEach(([key, value]) => {
@@ -32,20 +29,23 @@ async function apiFetch<P>(
 const BASE_URL = `/api/proxy/posts`
 
 export async function getAllPosts(params: PaginationParams) {
-  return apiFetch('', params)
+  return apiFetch<PostsResponse, PaginationParams>('', params)
 }
 
 export async function getPostsByCategory(
   category: string,
   params: PaginationParams
 ) {
-  return apiFetch(`/category/${category}`, params)
+  return apiFetch<PostsResponse, PaginationParams>(
+    `/category/${category}`,
+    params
+  )
 }
 
 export async function getPostsByTag(tag: string, params: PaginationParams) {
-  return apiFetch(`/tags/${tag}`, params)
+  return apiFetch<PostsResponse, PaginationParams>(`/tags/${tag}`, params)
 }
 
 export async function getPostById(id: string) {
-  return apiFetch(`/id/${id}`)
+  return apiFetch<PostDetailsResponse, { id: string }>(`/id/${id}`)
 }

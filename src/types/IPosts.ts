@@ -24,3 +24,8 @@ export interface PostsResponse {
   pagination: IPagination
   meta: Meta
 }
+
+export interface PostDetailsResponse {
+  post: IPost
+  meta: Meta
+}

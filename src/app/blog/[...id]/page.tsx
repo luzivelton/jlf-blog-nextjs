@@ -1,11 +1,19 @@
+import { PostDetails } from '@/app/blog/[...id]/_components/PostDetails'
 import { Footer } from '@/layouts/AppLayout/components/Footer'
 
-export default function Article() {
+type IBlogProps = {
+  params: Promise<{
+    id: string[]
+  }>
+}
+
+export default async function Blog({ params }: IBlogProps) {
+  const awaitedParams = await params
+  const id = awaitedParams.id?.[0]
+
   return (
-    <div className='flex flex-col items-center'>
-      <p className='text-[var(--muted-foreground)] mt-4 max-w-xl m-auto text-center'>
-        Estudo programação desde os 15 anos e, ao longo de uma carreira de mais
-      </p>
+    <div className='inline-padding flex flex-col'>
+      <PostDetails id={id} />
       <Footer className='mt-10' />
     </div>
   )

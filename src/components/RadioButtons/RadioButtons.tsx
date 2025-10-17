@@ -1,6 +1,7 @@
 import { Dropdown } from '@/components/Dropdown/Dropdown'
 import { RadioButtonsItem } from '@/components/RadioButtons/RadioButtonsItem'
 import { RadioButtonsProps } from '@/components/RadioButtons/RadioButtonsTypes'
+import clsx from 'clsx'
 import { useCallback, useMemo } from 'react'
 
 export function RadioButtons<T>({
@@ -8,6 +9,8 @@ export function RadioButtons<T>({
   value,
   onChange,
   allowClear,
+  className,
+  ...props
 }: RadioButtonsProps<T>) {
   const handleOnChange = useCallback(
     (newValue: T) => {
@@ -35,9 +38,10 @@ export function RadioButtons<T>({
   return (
     <div
       id='radio-buttons'
-      className='inline-flex gap-2 sm:gap-4'
+      className={clsx('inline-flex gap-2 sm:gap-4', className)}
       role='group'
-      aria-label='Radio options'
+      aria-label='Selecione uma opção'
+      {...props}
     >
       {firstOptions.map((option) => (
         <RadioButtonsItem

@@ -7,7 +7,7 @@ import { Footer } from '@/layouts/AppLayout/components/Footer'
 export default function Home() {
   return (
     <>
-      <div className='inline-padding flex flex-col items-center full-height-with-header'>
+      <div className='inline-padding flex flex-col items-center full-height-with-header pb-8'>
         <PersonalIntroduction />
         <Image
           className='hidden sm:block m-auto h-auto'

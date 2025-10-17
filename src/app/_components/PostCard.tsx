@@ -20,7 +20,7 @@ export const PostCard = memo(function PostCard({
 }: PostCardProps) {
   return (
     <Card className='relative hover:shadow-[0_4px_44px_0_rgba(28,167,200,0.3)] transition-shadow'>
-      <CardAnchor href={`blog/${id}`} />
+      <CardAnchor href={`/blog/${id}`} />
       <PostCardImage
         src={imageUrl}
         alt='Image representando o post'

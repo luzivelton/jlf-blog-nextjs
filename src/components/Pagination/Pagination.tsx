@@ -6,6 +6,7 @@ export function Pagination({
   currentPage,
   totalPages,
   onChange,
+  ...props
 }: PaginationProps) {
   const options = useMemo(() => {
     return Array.from({ length: totalPages }, (_, i) => {
@@ -18,6 +19,11 @@ export function Pagination({
   }, [totalPages])
 
   return (
-    <RadioButtons options={options} value={currentPage} onChange={onChange} />
+    <RadioButtons
+      options={options}
+      value={currentPage}
+      onChange={onChange}
+      {...props}
+    />
   )
 }
