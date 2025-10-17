@@ -13,12 +13,12 @@ export function RadioButtons<T>({
   ...props
 }: RadioButtonsProps<T>) {
   const handleOnChange = useCallback(
-    (newValue: T) => {
+    (newValue: T | null) => {
       onChange((prevValue) => {
         const shouldClear = allowClear && newValue === prevValue
 
         if (shouldClear) {
-          return null as T
+          return null
         }
 
         return newValue

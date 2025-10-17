@@ -19,7 +19,7 @@ export function Pagination({
   }, [totalPages])
 
   return (
-    <RadioButtons
+    <RadioButtons<number | null>
       options={options}
       value={currentPage}
       onChange={onChange}

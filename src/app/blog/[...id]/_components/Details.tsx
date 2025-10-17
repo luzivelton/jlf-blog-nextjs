@@ -64,6 +64,7 @@ export function Details({ post, error, isLoading }: DetailsProps) {
           alt={`${post.title}`}
           width={608}
           height={358}
+          style={{ width: 'auto', height: 'auto' }}
         />
       </div>
       <Typography variant='body' asVariant={true} className='mt-6 sm:mt-16'>

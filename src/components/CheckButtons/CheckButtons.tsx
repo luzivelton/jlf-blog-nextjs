@@ -7,19 +7,21 @@ import { useCallback, useMemo } from 'react'
 
 export function CheckButtons<T>({
   options,
-  value,
+  value = [],
   onChange,
 }: CheckButtonsProps<T>) {
   const handleOnChange = useCallback(
-    (value: T) => {
+    (value: T | null) => {
       onChange((prev) => {
-        const shouldRemove = prev.includes(value)
+        const shouldRemove = value && prev && prev.includes(value)
 
         if (shouldRemove) {
           return prev.filter((v) => v !== value)
         }
 
-        return [...prev, value]
+        return [...(prev || ([] as T[])), value].filter(
+          (v): v is T => v !== null
+        )
       })
     },
     [onChange]
@@ -43,7 +45,7 @@ export function CheckButtons<T>({
       {firstOptions.map((option) => (
         <CheckButtonsItem
           key={String(option.value)}
-          isChecked={value.includes(option.value)}
+          isChecked={Boolean(value && value.includes(option.value))}
           onChange={handleOnChange}
           label={option.label}
           value={option.value}

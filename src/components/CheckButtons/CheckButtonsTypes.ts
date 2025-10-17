@@ -5,8 +5,8 @@ export type CheckButtonsOption<T> = {
 
 export type CheckButtonsProps<T> = {
   options: CheckButtonsOption<T>[]
-  value: T[]
-  onChange: (param: (prev: T[]) => T[]) => void
+  value: T[] | null
+  onChange: (param: (prev: T[] | null) => T[] | null) => void
 }
 
 export type CheckButtonsItemProps<T> = {

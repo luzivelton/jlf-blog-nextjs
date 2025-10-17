@@ -12,7 +12,7 @@
   }
 
   .full-height-with-header {
-    height: calc(100dvh - 174px);
+    min-height: calc(100dvh - 174px);
 
     @media (max-width: 600px) {
       height: unset;

@@ -4,20 +4,20 @@ import { useCallback } from 'react'
 
 type IFiltersContext = {
   category: string | null
-  tag: string | null
+  search: string | null
   setCategory: (param: (category: string | null) => string | null) => void
-  setTag: (tag: string | null) => void
+  setSearch: (tag: string | null) => void
   limit: number
   setLimit: (limit: number) => void
   page: number
-  setPage: (param: (prevPage: number) => number) => void
+  setPage: (param: (prevPage: number | null) => number | null) => void
 }
 
 export const FiltersContext = createContext<IFiltersContext>({
   category: null,
-  tag: null,
+  search: null,
   setCategory: () => {},
-  setTag: () => {},
+  setSearch: () => {},
   limit: 6,
   setLimit: () => {},
   page: 1,
@@ -26,7 +26,7 @@ export const FiltersContext = createContext<IFiltersContext>({
 
 export function FiltersProvider({ children }: { children: ReactNode }) {
   const [category, setCategory] = useState<string | null>(null)
-  const [tag, setTag] = useState<string | null>(null)
+  const [search, setSearch] = useState<string | null>(null)
   const [limit, setLimit] = useState<number>(6)
   const [page, setPage] = useState<number>(1)
 
@@ -34,7 +34,7 @@ export function FiltersProvider({ children }: { children: ReactNode }) {
     (updater: (category: string | null) => string | null) => {
       setCategory((prev) => {
         const newCategory = updater(prev)
-        setTag(null)
+        setSearch(null)
         setPage(1)
         return newCategory
       })
@@ -42,8 +42,8 @@ export function FiltersProvider({ children }: { children: ReactNode }) {
     []
   )
 
-  const handleSetTag = useCallback((newTag: string | null) => {
-    setTag(newTag)
+  const handleSetSearch = useCallback((newSearch: string | null) => {
+    setSearch(newSearch)
     setCategory(null)
     setPage(1)
   }, [])
@@ -53,25 +53,32 @@ export function FiltersProvider({ children }: { children: ReactNode }) {
     setPage(1)
   }, [])
 
-  const handleSetPage = setPage
+  const handleSetPage = useCallback(
+    (updater: (page: number | null) => number | null) => {
+      setPage((prev) => {
+        return updater(prev || 1) || 1
+      })
+    },
+    []
+  )
 
   const value = useMemo<IFiltersContext>(
     () => ({
       category,
-      tag,
+      search,
       limit,
       setCategory: handleSetCategory,
-      setTag: handleSetTag,
+      setSearch: handleSetSearch,
       setLimit: handleSetLimit,
       page,
       setPage: handleSetPage,
     }),
     [
       category,
-      tag,
+      search,
       limit,
       page,
-      handleSetTag,
+      handleSetSearch,
       handleSetLimit,
       handleSetPage,
       handleSetCategory,

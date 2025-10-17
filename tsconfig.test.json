@@ -8,5 +8,11 @@
     "esModuleInterop": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "jest.setup.ts"]
+  "include": [
+    "src",
+    "jest.setup.ts",
+    "jest",
+    "node",
+    "@testing-library/jest-dom"
+  ]
 }

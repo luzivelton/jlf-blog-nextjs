@@ -6,5 +6,5 @@ export type PaginationProps = Omit<
 > & {
   currentPage: number
   totalPages: number
-  onChange: (param: (prevPage: number) => number) => void
+  onChange: (param: (prevPage: number | null) => number | null) => void
 }

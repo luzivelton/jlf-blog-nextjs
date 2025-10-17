@@ -1,8 +1,6 @@
-/// <reference types="@testing-library/jest-dom" />
-
 import { describe, it, expect, jest } from '@jest/globals'
-
 import { render, screen, act } from '@testing-library/react'
+import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 import { Dropdown } from './Dropdown'
 import { useState } from 'react'
@@ -18,9 +16,9 @@ function TestDropdown<T, M extends boolean | undefined>(
     (props.multiple ? [] : props.options?.[0]?.value) as ValueType<T, M>
   )
 
-  const onChange = (newValue: T) => {
+  const onChange = (newValue: T | null) => {
     if (props.multiple) {
-      const isAdding = !(value as T[]).includes(newValue)
+      const isAdding = newValue && !(value as T[]).includes(newValue)
 
       setValue(
         isAdding

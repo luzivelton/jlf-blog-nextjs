@@ -6,7 +6,7 @@ import { useDebounce } from '@/hooks/useDebounce'
 import { useEffect, useState } from 'react'
 
 export function PostsSearch() {
-  const { setTag } = useFilters()
+  const { setSearch } = useFilters()
   const [searchValue, setSearchValue] = useState('')
 
   const debouncedValue = useDebounce(searchValue)
@@ -14,12 +14,12 @@ export function PostsSearch() {
   function handleChange(value: string) {
     setSearchValue(value)
 
-    if (value === '') setTag(value)
+    if (value === '') setSearch(value)
   }
 
   useEffect(() => {
-    setTag(debouncedValue)
-  }, [debouncedValue, setTag])
+    setSearch(debouncedValue)
+  }, [debouncedValue, setSearch])
 
   return (
     <Search

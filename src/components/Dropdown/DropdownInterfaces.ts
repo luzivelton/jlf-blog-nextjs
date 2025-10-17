@@ -2,12 +2,12 @@ import type { MenuProps } from '@/components/Menu/MenuTypes'
 
 export type DropdownOption<T> = {
   label: string
-  value: T
+  value: T | null
 }
 
 export type ValueType<T, M extends boolean | undefined> = M extends true
-  ? T[]
-  : T
+  ? T[] | null
+  : T | null
 
 export type CommonProps<T, M extends boolean | undefined> = Omit<
   MenuProps,
@@ -24,7 +24,7 @@ export type DropdownProps<T, M extends boolean | undefined> = CommonProps<
   M
 > & {
   options: DropdownOption<T>[]
-  onChange: (value: T) => void
+  onChange: (value: T | null) => void
   selector: string
   classNames?: {
     trigger?: string
@@ -37,5 +37,5 @@ export type PanelProps<T, M extends boolean | undefined = false> = CommonProps<
   M
 > & {
   isOpen: boolean
-  handleChange: (value: T) => void
+  handleChange: (value: T | null) => void
 }

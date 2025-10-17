@@ -5,10 +5,13 @@ type RadioButtonsOption<T> = {
   value: T
 }
 
-export type RadioButtonsProps<T> = JSX.IntrinsicElements['div'] & {
+export type RadioButtonsProps<T> = Omit<
+  JSX.IntrinsicElements['div'],
+  'onChange'
+> & {
   options: RadioButtonsOption<T>[]
-  value: T
-  onChange: (param: (value: T) => T) => void
+  value: T | null
+  onChange: (param: (value: T | null) => T | null) => void
   allowClear?: boolean
 }
 

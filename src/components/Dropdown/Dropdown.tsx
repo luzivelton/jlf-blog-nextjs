@@ -32,7 +32,7 @@ export function Dropdown<T, M extends boolean | undefined>({
     setIsOpen((prev) => !prev)
   }
 
-  function handleChange(value: T) {
+  function handleChange(value: T | null) {
     onChange(value)
   }
 
