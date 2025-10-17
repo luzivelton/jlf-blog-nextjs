@@ -1,20 +1,23 @@
-import { Typography } from '@/components/Typography/Typography'
+import { PersonalIntroduction } from '@/app/_components/PersonalIntroduction'
+import { Image } from '@/components/Image/Image'
+import { ContactDetails } from '@/layouts/AppLayout/components/ContactDetails'
+import { Footer } from '@/layouts/AppLayout/components/Footer'
 
 export default function Home() {
   return (
-    <div className='flex flex-col items-center'>
-      <Typography variant='titleHuge' asVariant={true}>
-        Eu sou Dev.{' '}
-        <span className='bg-[image:var(--accent-gradient)] bg-clip-text text-transparent whitespace-nowrap'>
-          Front-end
-        </span>
-      </Typography>
-      <p className='text-[var(--muted-foreground)] mt-4 max-w-xl m-auto text-center'>
-        Estudo programação desde os 15 anos e, ao longo de uma carreira de mais
-        de 4 anos, trabalhei em diversos projetos de tecnologia para grandes
-        clientes do mercado financeiro. Confira alguns dos projetos que
-        desenvolvi!
-      </p>
-    </div>
+    <>
+      <div className='inline-padding flex flex-col items-center full-height-with-header'>
+        <PersonalIntroduction />
+        <Image
+          className='hidden sm:block m-auto'
+          src='/layoutPatterns.svg'
+          alt=''
+          aria-label='hidden'
+          width={686}
+          height={28}
+        />
+      </div>
+      <Footer className='mt-28' prefixContent={<ContactDetails />} />
+    </>
   )
 }

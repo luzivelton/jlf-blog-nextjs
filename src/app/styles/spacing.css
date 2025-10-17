@@ -2,4 +2,16 @@
   .max-w-content {
     max-width: 1191px;
   }
+
+  .inline-padding {
+    padding-inline: 1rem;
+
+    @media (min-width: 640px) {
+      padding-inline: 0rem;
+    }
+  }
+
+  .full-height-with-header {
+    height: calc(100dvh - 174px);
+  }
 }

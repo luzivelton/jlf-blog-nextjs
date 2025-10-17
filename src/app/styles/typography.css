@@ -1,31 +1,44 @@
 @layer utilities {
   .body {
-    color: var(--foreground);
-    line-height: 1.5;
+    color: var(--muted-foreground);
+    line-height: 1;
   }
+
   .body-default {
     font-size: 1rem;
     font-weight: 400;
+    line-height: 1.5;
   }
+
   .body-large {
     font-size: 1.25rem;
     font-weight: 600;
   }
+
   .body-small {
     font-size: 0.875rem;
     font-weight: 400;
   }
+
   .caption {
     font-size: 0.75rem;
     font-weight: 400;
     line-height: 1.5;
+
+    @media (min-width: 768px) {
+      font-size: 1rem;
+    }
   }
+
   .strong {
     font-weight: 600;
   }
+
   .secondary {
-    color: var(--muted-foreground);
+    color: var(--primary);
+    font-family: var(--font-chakra-petch);
   }
+
   .ellipsis > *,
   .ellipsis.title {
     display: -webkit-box;
@@ -34,16 +47,19 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
   .title {
     color: var(--secondary);
     font-family: var(--font-chakra-petch);
     font-weight: 700;
   }
+
   .h2 {
     font-size: 1.25rem;
     font-weight: 700;
     line-height: 1.2;
   }
+
   @media (min-width: 768px) {
     .h2 {
       font-size: 2.5rem;
@@ -55,6 +71,7 @@
     font-weight: 700;
     line-height: 1.2;
   }
+
   @media (min-width: 768px) {
     .titleSmall {
       font-size: 1.5rem;
@@ -63,10 +80,11 @@
 
   .titleHuge {
     font-size: 2rem;
-    line-height: 2.5rem;
+    line-height: 1;
+
     @media (min-width: 768px) {
       font-size: 4.285rem;
-      line-height: 4.5rem;
+      line-height: 1;
     }
   }
 }

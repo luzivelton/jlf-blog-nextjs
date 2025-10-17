@@ -5,6 +5,7 @@ import type {
   TypographyProps,
 } from '@/components/Typography/TypographyTypes'
 import { useMemo } from 'react'
+import clsx from 'clsx'
 
 const VARIANT_CLASSNAMES = {
   bodySmall: 'body body-small',
@@ -37,23 +38,17 @@ export function Typography({
     }
   }, [numberOfLines, style])
 
-  const classes = useMemo(
-    () =>
-      [
-        variantClass,
-        strong && 'strong',
-        secondary && 'secondary',
-        numberOfLines && 'ellipsis',
-        className,
-      ]
-        .filter(Boolean)
-        .join(' '),
-    [variantClass, strong, secondary, numberOfLines, className]
-  )
-
   return (
     <VariantComponent
-      className={classes}
+      className={clsx(
+        variantClass,
+        {
+          strong,
+          secondary,
+          ellipsis: numberOfLines,
+        },
+        className
+      )}
       variant={variant}
       style={styleFinal}
       asVariant={asVariant}
@@ -85,7 +80,7 @@ function Title({
   asVariant,
   ...props
 }: TypographyElementProps) {
-  if (asVariant) {
+  if (asVariant === true) {
     switch (variant) {
       case 'titleHuge':
         return <h1 className={className} {...props} />
@@ -95,6 +90,18 @@ function Title({
         return <h3 className={className} {...props} />
     }
   }
+
+  if (typeof asVariant === 'string') {
+    switch (asVariant) {
+      case 'h1':
+        return <h1 className={className} {...props} />
+      case 'h2':
+        return <h2 className={className} {...props} />
+      case 'h3':
+        return <h3 className={className} {...props} />
+    }
+  }
+
   return <span className={className} {...props} />
 }
 
