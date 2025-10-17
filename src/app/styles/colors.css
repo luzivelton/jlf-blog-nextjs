@@ -12,6 +12,11 @@
     --muted-foreground: rgb(255 255 255);
     --muted-active: rgb(105 105 105);
 
+    --shadow: rgba(0, 0, 0, 0.2);
+
+    --accent-shadow-color: 28, 167, 200;
+    --accent-shadow-opacity: 0.3;
+
     --primary: rgb(28 167 200);
     --primary-active: rgb(10 160 195);
     --primary-foreground: rgb(255 255 255);
@@ -21,11 +26,11 @@
     --secondary-foreground: rgb(255 255 255);
 
     --accent-shadow: rgba(28, 167, 200, 0.3);
-    --accent-from: rgb(140 97 213);
+    --accent: rgb(140 97 213);
     --accent-to: rgb(28 167 200);
     --accent-gradient: linear-gradient(
       to right,
-      var(--accent-from),
+      var(--accent),
       var(--accent-to)
     );
     --border: rgb(197 192 200);
@@ -45,6 +50,8 @@
     --muted-foreground: rgb(255 255 255);
     --muted-active: rgb(105 105 105);
 
+    --shadow: rgba(0, 0, 0, 0.2);
+
     --primary: rgb(28 167 200);
     --primary-active: rgb(10 160 195);
     --primary-foreground: rgb(29 31 33);
@@ -54,13 +61,14 @@
     --secondary-foreground: rgb(255 255 255);
 
     --accent-shadow: rgba(28, 167, 200, 0.3);
-    --accent-from: rgb(140 97 213);
+    --accent: rgb(140 97 213);
     --accent-to: rgb(28 167 200);
     --accent-gradient: linear-gradient(
       to right,
-      var(--accent-from),
+      var(--accent),
       var(--accent-to)
     );
+
     --border: rgb(127 129 133);
     --danger-background: rgb(230 57 70);
     --danger-foreground: rgb(255 234 234);

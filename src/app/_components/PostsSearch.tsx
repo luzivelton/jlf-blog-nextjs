@@ -1,10 +1,31 @@
 'use client'
 
 import { Search } from '@/components/Search/Search'
-import { useState } from 'react'
+import { useFilters } from '@/contexts/FiltersContext/useFilters'
+import { useDebounce } from '@/hooks/useDebounce'
+import { useEffect, useState } from 'react'
 
 export function PostsSearch() {
-  const [value, setValue] = useState('')
+  const { setTag } = useFilters()
+  const [searchValue, setSearchValue] = useState('')
 
-  return <Search placeholder='Buscar...' onChange={setValue} value={value} />
+  const debouncedValue = useDebounce(searchValue)
+
+  function handleChange(value: string) {
+    setSearchValue(value)
+
+    if (value === '') setTag(value)
+  }
+
+  useEffect(() => {
+    setTag(debouncedValue)
+  }, [debouncedValue, setTag])
+
+  return (
+    <Search
+      placeholder='Buscar...'
+      onChange={handleChange}
+      value={searchValue}
+    />
+  )
 }

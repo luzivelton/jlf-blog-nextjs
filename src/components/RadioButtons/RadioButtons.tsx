@@ -1,26 +1,45 @@
+import { Dropdown } from '@/components/Dropdown/Dropdown'
 import { RadioButtonsItem } from '@/components/RadioButtons/RadioButtonsItem'
 import { RadioButtonsProps } from '@/components/RadioButtons/RadioButtonsTypes'
-import { useCallback } from 'react'
+import { useCallback, useMemo } from 'react'
 
 export function RadioButtons<T>({
   options,
   value,
   onChange,
+  allowClear,
 }: RadioButtonsProps<T>) {
   const handleOnChange = useCallback(
-    (value: T) => {
-      onChange(value)
+    (newValue: T) => {
+      onChange((prevValue) => {
+        const shouldClear = allowClear && newValue === prevValue
+
+        if (shouldClear) {
+          return null as T
+        }
+
+        return newValue
+      })
     },
     [onChange]
   )
 
+  const firstOptions = useMemo(() => {
+    return options.slice(0, 3)
+  }, [options])
+
+  const collapsedOptions = useMemo(() => {
+    return options.slice(3)
+  }, [options])
+
   return (
     <div
+      id='radio-buttons'
       className='inline-flex gap-2 sm:gap-4'
       role='group'
       aria-label='Radio options'
     >
-      {options.map((option) => (
+      {firstOptions.map((option) => (
         <RadioButtonsItem
           key={String(option.value)}
           isSelected={value === option.value}
@@ -29,6 +48,15 @@ export function RadioButtons<T>({
           value={option.value}
         />
       ))}
+
+      {collapsedOptions.length > 0 && (
+        <Dropdown
+          selector='#radio-buttons'
+          onChange={handleOnChange}
+          options={collapsedOptions}
+          value={value}
+        />
+      )}
     </div>
   )
 }

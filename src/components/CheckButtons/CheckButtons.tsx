@@ -1,6 +1,9 @@
+import { Button } from '@/components/Button/Button'
 import { CheckButtonsItem } from '@/components/CheckButtons/CheckButtonsItem'
 import { CheckButtonsProps } from '@/components/CheckButtons/CheckButtonsTypes'
-import { useCallback } from 'react'
+import { Dropdown } from '@/components/Dropdown/Dropdown'
+import { ArrowDown, ChevronDown } from 'lucide-react'
+import { useCallback, useMemo } from 'react'
 
 export function CheckButtons<T>({
   options,
@@ -22,13 +25,22 @@ export function CheckButtons<T>({
     [onChange]
   )
 
+  const firstOptions = useMemo(() => {
+    return options.slice(0, 3)
+  }, [options])
+
+  const collapsedOptions = useMemo(() => {
+    return options.slice(3)
+  }, [options])
+
   return (
     <div
-      className='inline-flex gap-2 sm:gap-4'
+      id='check-buttons'
+      className='inline-flex gap-2 sm:gap-4 relative'
       role='group'
       aria-label='Check options'
     >
-      {options.map((option) => (
+      {firstOptions.map((option) => (
         <CheckButtonsItem
           key={String(option.value)}
           isChecked={value.includes(option.value)}
@@ -37,6 +49,21 @@ export function CheckButtons<T>({
           value={option.value}
         />
       ))}
+      {collapsedOptions.length > 0 && (
+        <Dropdown
+          selector='#check-buttons'
+          onChange={handleOnChange}
+          options={collapsedOptions}
+          value={value}
+          classNames={{
+            panel: 'top-[3rem]',
+          }}
+        >
+          <Button variant='filled'>
+            <ChevronDown />
+          </Button>
+        </Dropdown>
+      )}
     </div>
   )
 }

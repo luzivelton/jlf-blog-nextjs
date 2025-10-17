@@ -6,7 +6,8 @@ type RadioButtonsOption<T> = {
 export type RadioButtonsProps<T> = {
   options: RadioButtonsOption<T>[]
   value: T
-  onChange: (param: T) => void
+  onChange: (param: (value: T) => T) => void
+  allowClear?: boolean
 }
 
 export type RadioButtonsItemProps<T> = {

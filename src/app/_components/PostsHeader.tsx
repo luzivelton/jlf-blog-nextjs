@@ -4,7 +4,7 @@ import { Typography } from '@/components/Typography/Typography'
 
 export function PostsHeader() {
   return (
-    <header className='flex flex-col sm:flex-row gap-4 justify-between '>
+    <header className='flex flex-col sm:flex-row gap-4 flex-wrap justify-between '>
       <div className='flex flex-col sm:items-center sm:flex-row gap-2 sm:gap-8'>
         <Typography variant='titleMedium' asVariant='h2'>
           Minha postagens

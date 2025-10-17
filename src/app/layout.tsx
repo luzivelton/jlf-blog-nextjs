@@ -1,10 +1,10 @@
 import './styles/globals.css'
 import type { Metadata } from 'next'
 import { Chakra_Petch, Inter } from 'next/font/google'
-import { MockProvider } from '@/providers/MockProvider'
 import QueryProvider from '@/providers/QueryProvider'
 import { ThemeProvider } from '@/providers/ThemeProvider'
 import { AppLayout } from '@/layouts/AppLayout/AppLayout'
+import { FiltersProvider } from '@/contexts/FiltersContext/FiltersContext'
 
 const chakraPetch = Chakra_Petch({
   variable: '--font-chakra-petch',
@@ -34,11 +34,9 @@ export default function RootLayout({
       </head>
       <body className={`${chakraPetch.variable} ${inter.variable} antialiased`}>
         <ThemeProvider>
-          <QueryProvider>
-            <MockProvider>
-              <AppLayout>{children}</AppLayout>
-            </MockProvider>
-          </QueryProvider>
+          <AppLayout>
+            <QueryProvider>{children}</QueryProvider>
+          </AppLayout>
         </ThemeProvider>
       </body>
     </html>

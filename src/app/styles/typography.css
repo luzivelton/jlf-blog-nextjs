@@ -48,7 +48,8 @@
   }
 
   .ellipsis > *,
-  .ellipsis.title {
+  .ellipsis.title,
+  .ellipsis.body {
     display: -webkit-box;
     -webkit-line-clamp: var(--line-number);
     line-clamp: var(--line-number);

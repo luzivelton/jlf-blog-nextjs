@@ -30,11 +30,12 @@ export function PersonalIntroduction() {
         variant='body'
         className='mt-6 max-w-xs sm:max-w-xl mx-auto text-center text-base sm:text-lg'
       >
-        Estou me especializando em Desenvolvimento Full-Stack, sou Tecnólogo em
-        A.D.S. e Técnico em Informática. Estudo programação desde os 15 anos e,
-        ao longo de mais de 4 anos, trabalhei em diversos projetos de tecnologia
-        para grandes clientes do mercado financeiro. Confira uma amostra do meu
-        trabalho!
+        Estou me especializando em Desenvolvimento Full-Stack pela PUC-Rio, sou
+        Tecnólogo em A.D.S. e Técnico em Informática. Estudo programação desde
+        os 15 anos e, ao longo de mais de 4 anos, trabalhei em diversos projetos
+        de tecnologia para grandes clientes do mercado financeiro.
+        <br />
+        Confira uma amostra do meu trabalho!
       </Typography>
     </div>
   )

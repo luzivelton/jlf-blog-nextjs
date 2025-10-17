@@ -1,8 +1,12 @@
+import { PaginationProps } from '@/components/Pagination/PaginationTypes'
 import { RadioButtons } from '@/components/RadioButtons/RadioButtons'
-import { IPagination } from '@/types/IPagination'
 import { useMemo } from 'react'
 
-export function Pagination({ currentPage, totalPages, onChange }: IPagination) {
+export function Pagination({
+  currentPage,
+  totalPages,
+  onChange,
+}: PaginationProps) {
   const options = useMemo(() => {
     return Array.from({ length: totalPages }, (_, i) => {
       const option = i + 1
