@@ -19,7 +19,11 @@ export function PostRecommendations({ tagsSlug }: PostRecommendationsProps) {
       >
         Postagens relacionadas
       </Typography>
-      <PostList dataSource={data?.posts} isLoading={isLoading} error={error} />
+      <PostList
+        dataSource={data?.posts}
+        isLoading={isLoading && !data}
+        error={error}
+      />
     </section>
   )
 }

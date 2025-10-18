@@ -39,12 +39,16 @@ export function PostList({ dataSource, isLoading, error }: PostListProps) {
     >
       {dataSource.map((post) => (
         <PostCard
-          id={post.id}
-          content={post.content}
-          title={post.title}
-          imageUrl={post.imageUrl}
-          categoryName={post.category.name}
           key={post.id}
+          author={post.author}
+          category={post.category}
+          content={post.content}
+          createdAt={post.createdAt}
+          id={post.id}
+          imageUrl={post.imageUrl}
+          likes={post.likes}
+          tags={post.tags}
+          title={post.title}
         />
       ))}
     </ul>
