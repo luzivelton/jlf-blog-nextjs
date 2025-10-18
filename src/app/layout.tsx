@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 import { Chakra_Petch, Inter } from 'next/font/google'
 import QueryProvider from '@/providers/QueryProvider'
 import { ThemeProvider } from '@/providers/ThemeProvider'
-import { AppLayout } from '@/layouts/AppLayout/AppLayout'
 
 const chakraPetch = Chakra_Petch({
   variable: '--font-chakra-petch',
@@ -27,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en' suppressHydrationWarning>
+    <html lang='pt-br' suppressHydrationWarning>
       <head>
         <link rel='icon' href='/favicon.ico' sizes='any' />
       </head>
